@@ -1,6 +1,11 @@
 const express = require('express');
 const { scrapeBrave } = require('./scraper');
 const { init } = require('./puppeteer');
+const { existsSync, mkdir } = require('fs');
+
+if(!existsSync('.cache')){
+    mkdir('.cache');
+}
 
 const app = express();
 
